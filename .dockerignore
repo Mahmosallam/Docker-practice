@@ -2,3 +2,5 @@ Dockerfile
 .dockerignore
 venv/
 .env
+.git
+.gitignore
