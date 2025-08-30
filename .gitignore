@@ -1,2 +1,5 @@
 venv/
 .env
+ty_app/node_modules
+dist/
+ty_app/package-lock.json
