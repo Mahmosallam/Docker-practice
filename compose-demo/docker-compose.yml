@@ -1,0 +1,65 @@
+
+services:
+    nginx:
+      image: nginx
+      volumes:
+        - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      networks:
+        - fe-net
+      ports:
+        - 80:80
+
+      # enviroments:
+      #   - var1
+      #   - var2
+
+      # env-file:
+      #   - ./.env/:/app/
+      # build:
+      #   context:./web/
+      #   dockerfile: the name of docker file
+      #   
+
+
+      # restart policy
+    alpine:
+       image: alpine
+       restart: always
+
+      # on-failuer policy : only restart non zero exit code
+      # restart: on-failure
+      # unless-stop == always but in reboot or restart for docker cont in always policy it will start 
+      # but unless stop cont dont start after reboot
+      # depends_on:  ---->   dont start db must start first
+      #      - db
+
+
+
+
+
+    py-app:
+      build: ./web/.
+      networks: 
+        - fe-net 
+        - be-net 
+
+      
+    redis:
+      image: redis
+      networks:
+        - be-net 
+      volumes:
+        - mydata:/data 
+
+networks:
+       fe-net:
+       be-net:
+
+volumes:
+    mydata:
+
+
+
+    
+
+      
