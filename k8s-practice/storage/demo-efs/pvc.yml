@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-tets
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: sc-test
+  resources:
+    requests:
+      storage: 5Gi

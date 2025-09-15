@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: myingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+    #host: lb-382757127.us-east-1.elb.amazonaws.com
+  -  http:
+      paths:
+      - pathType: Prefix
+        path: /app1
+        backend:
+          service:
+            name: app1-svc
+            port: 
+              number: 80
+
+      - pathType: Prefix
+        path: /app2
+        backend:
+          service:
+            name: app2-svc
+            port: 
+              number: 80
+      

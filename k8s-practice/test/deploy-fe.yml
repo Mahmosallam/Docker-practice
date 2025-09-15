@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fe
+spec:
+  replicas: 3
+  selector: 
+     matchLabels:
+       env: prod1
+  template:
+    metadata:
+      labels:
+        env: prod1
+    spec:
+      containers:
+       - name: nginx
+         image: osos3/re-proxy
+         ports:
+           - containerPort: 80
+         #image: img-test
+         #imagePullPolicy: Never
+

@@ -7,7 +7,7 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "Hello from Go app with dependencies!")
+    fmt.Fprintf(w, "Hello from Go app with dependencies! ---- iam sallam basha")
 }
 
 func main() {
