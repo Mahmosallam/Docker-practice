@@ -1,5 +1,5 @@
 venv/
 .env
-ty_app/node_modules
-dist/
-ty_app/package-lock.json
+Docker-Practice/ty_app/node_modules
+Docker-Practice/dist/
+Docker-Practice/ty_app/package-lock.json
