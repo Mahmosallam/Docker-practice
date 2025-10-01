@@ -1,0 +1,77 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongo-db-pv
+spec:
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/data/db"
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongo-db-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-db
+  namespace: mongo-db
+spec:
+  replicas: 1
+  selector: 
+     matchLabels:
+       env: prod
+  template:
+    metadata:
+      labels:
+        env: prod
+    spec:
+      containers:
+       - name: mongodb
+         image: mongo:latest
+         ports:
+           - containerPort: 27017
+         envFrom:
+          - secretRef:
+              name: mongo-secret
+         volumeMounts:
+            - name: mongo-storage
+              mountPath: /data/db
+      volumes:
+        - name: mongo-storage
+          persistentVolumeClaim:
+            claimName: mongo-db-pvc
+      tolerations:
+      - key: "key"
+        operator: "Equal"
+        value: "db"
+        effect: "NoSchedule"
+      nodeSelector:
+        node: node1
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-svc
+  namespace: mongo-db
+spec:
+  type: ClusterIP
+  selector:
+    env: prod
+  ports:
+    - port: 27017
+      targetPort: 27017
+
