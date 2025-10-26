@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-config
+data:
+  init.sql: |
+    CREATE DATABASE IF NOT EXISTS mydb;
+    CREATE USER 'sallam'@'%' IDENTIFIED BY '1234';
+    GRANT ALL PRIVILEGES ON mydb.* TO 'sallam'@'%';
+    FLUSH PRIVILEGES;
