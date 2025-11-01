@@ -1,0 +1,26 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+apiVersion: v2
+appVersion: 1.16.0
+description: A Helm chart for Kubernetes
+name: nginx-chart
+type: application
+version: 0.1.0
+
+...
+files:
+  nginx-chart-0.1.0.tgz: sha256:1d838f48299d0a62edfb1fb68515edf742a3fef9f606ea76072b01ee4b0cfee1
+-----BEGIN PGP SIGNATURE-----
+
+wsDcBAEBCgAQBQJpBmcgCRBzXM3aUHBmfQAAUXYMAM+qO6IlQbIVqQsnqs+09wJE
+Yh00QkesRYZe6HiwvCh5/WONwE5llvX0Yw3zQAUZcge66XhLRO63+T9QEUiCMQOp
+KsDp58WYgBffO+TvoxrorCxb1ol3jgsgR29ek49btPcE0sZoAqIy7ZEamFPVyCLB
+QBtryy5JCE2rTnbxqiqP/ikdUNAz5QyEXYOFS/9+gBDmZ74DdkxhJmmaYE+qwRJ3
+Dtm/6KZLvxGubakespDmzZRC0vQRq0ds6GJWKilkgB41JOCMho1tMKT8gkwvSTuQ
+RAdprPVZgiy19cRpaomB0vG1UBuuqVb6jg18hiQxNDalqf+H3DvZKkMMRpgx7zHs
+9mNkw7Jm+ZYuBeV7VCU12GhJNqLhbBGlAHSIxHBcx7lrRbSW4GIvZY272J/1TWz2
+KacEFT6S/2FFwVpqhHmMuad98w6On9GusQXzTk7PciDSEvB7gyF5y9j/kz7AapXP
+kst6edRQnZgwmZh1LY7ZH87wYriDJ6pytUEms+faLA==
+=CIN/
+-----END PGP SIGNATURE-----
